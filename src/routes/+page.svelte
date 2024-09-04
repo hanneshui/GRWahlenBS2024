@@ -35,7 +35,7 @@
 	}
 
 	let districts: DistrictVotes = getDistrictVotes();
-	let selectedDistrict: string = Object.keys(districts)[0]; // Standardmäßig der erste Distrikt ausgewählt
+	let selectedDistrict: string = Object.keys(districts)[0]; // Standardmäßig der erste Wahlkreis ausgewählt
 	let seatDistribution: { [district: string]: { [party: string]: number } };
 	let seatDistributionTotal: { [party: string]: number };
 	let sliderValuePercentMode: boolean = true;
@@ -58,7 +58,7 @@
 	$: extraSeatsTotal[selectedDistrict] = getVotesforExtraSeatsTotal(districts[selectedDistrict]);
 	$: minusSeatsTotal[selectedDistrict] = getVotesforMinusSeatsTotal(districts[selectedDistrict]);
 
-	// Funktion, um den ausgewählten Distrikt zurückzusetzen
+	// Funktion, um den ausgewählten Wahlkreis zurückzusetzen
 	function resetDistrictVotes() {
 		// Annahme: getDistrictVotes() gibt die ursprünglichen Werte zurück
 		districts = getDistrictVotes();
@@ -154,11 +154,11 @@
 </h1>
 <hr />
 <h2 class="bg-slate-600 px-4 py-4 text-center text-lg font-bold text-white md:text-xl">
-	Ausgewählter Distrikt: {selectedDistrict}
+	Ausgewählter Wahlkreis: {selectedDistrict}
 </h2>
 <div class="mx-auto grid max-w-screen-2xl gap-10 px-4 py-8 lg:grid-cols-2">
 	<div>
-		<!-- Beispiel, um die Stimmen des ausgewählten Distrikts anzuzeigen -->
+		<!-- Beispiel, um die Stimmen des ausgewählten Wahlkreiss anzuzeigen -->
 
 		{#if selectedDistrict}
 			<div class="mb-4 grid gap-4 rounded-md bg-slate-200 px-4 py-2 sm:grid-cols-3 sm:gap-4">
@@ -287,7 +287,7 @@
 					</div>
 				{/if}
 			{/if}
-			<h3 class="mb-1 mt-8 text-lg font-medium">Stimmen:</h3>
+			<h3 class="mb-1 mt-8 text-lg font-medium">Listenstimmen:</h3>
 			<ul class="space-y-1">
 				{#each Object.entries(districts[selectedDistrict].votes) as [party, votes]}
 					<div class="flex items-center">
@@ -330,10 +330,10 @@
 									<div class="w-full text-center">
 										<input
 											type="checkbox"
-											name="befestigen"
+											name="fixieren"
 											bind:checked={fixedParties[selectedDistrict][party]}
 										/>
-										Befestigen
+										fixieren
 									</div>
 								</div>
 							</label>
@@ -425,7 +425,7 @@
 	<div class="space-y-8">
 		{#if seatDistribution}
 			<div>
-				<h3 class="mb-1 text-lg font-medium">Sitzzuteilung im Distrikt {selectedDistrict}:</h3>
+				<h3 class="mb-1 text-lg font-medium">Sitzzuteilung im Wahlkreis {selectedDistrict}:</h3>
 				<table class="w-full table-auto border border-slate-300 text-center">
 					<thead>
 						<tr class="bg-slate-700 text-slate-200">
