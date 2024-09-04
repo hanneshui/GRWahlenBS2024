@@ -1,19 +1,5 @@
 interface VoteCounts {
-	FDP?: number;
-	LDP?: number;
-	EVP?: number;
-	SP?: number;
-	CVP?: number;
-
-	GLP?: number;
-	SVP?: number;
-	KL?: number;
-	FUK?: number;
-	VA?: number;
-	Andere?: number;
-	BDV?: number;
-	AB?: number;
-	GB?: number;
+	[party:string] : number;
 }
 
 interface DistrictVotes {
@@ -38,6 +24,7 @@ export const getDistrictVotes = () => {
 				GLP: 31089,
 				SVP: 36131,
 				KL: 1406,
+				Andere: 0,
 				GB: 47428
 			},
 			total_seats: 27
@@ -51,6 +38,7 @@ export const getDistrictVotes = () => {
 				CVP: 26816,
 				GLP: 41200,
 				SVP: 55681,
+				Andere: 0,
 				GB: 107831
 			},
 			total_seats: 34
@@ -81,12 +69,13 @@ export const getDistrictVotes = () => {
 				CVP: 6478,
 				GLP: 4920,
 				SVP: 11133,
+				Andere: 0,
 				GB: 4805
 			},
 			total_seats: 11
 		},
 		Bettingen: {
-			votes: { BDV: 179, AB: 262 },
+			votes: { BDV: 179, AB: 262, Andere: 0},
 			total_seats: 1
 		}
 	};
@@ -103,6 +92,7 @@ export function getDefaultFixedParties() {
 			GLP: false,
 			SVP: false,
 			KL: false,
+			Andere: false,
 			GB: false,
 			GP: false,
 			BA: false
@@ -115,6 +105,7 @@ export function getDefaultFixedParties() {
 			CVP: false,
 			GLP: false,
 			SVP: false,
+			Andere: false,
 			GB: false,
 			GP: false,
 			BA: false
@@ -143,13 +134,15 @@ export function getDefaultFixedParties() {
 			CVP: false,
 			GLP: false,
 			SVP: false,
+			Andere: false,
 			GB: false,
 			GP: false,
 			BA: false
 		},
 		Bettingen: {
 			BDV: false,
-			AB: false
+			AB: false,
+			Andere: false
 		}
 	};
 	return fixedParties;
