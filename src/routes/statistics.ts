@@ -108,6 +108,11 @@ for (let party in Votes.votes) {
 if (seatsOfParty === 0) {
     return neededVotes;
 }
+else if (seatsOfParty === totalSeats) {
+    if (totalVotes === Votes.votes[party]) {
+        return neededVotes;
+    }
+}
 else{
     let minLessVotes:number = 1;
     let maxLessVotes:number = Math.min(PartyVotes, totalVotes/totalSeats);
