@@ -156,8 +156,8 @@ export function changeGrueneBastaSplitDistricts(
 				// Löschen des "GB"-Eintrags
 				delete district.votes[partyCode];
 				// Hinzufügen der neuen Schlüssel-Wert-Paare
-				district.votes['GP'] = grVotes;
-				district.votes['BA'] = baVotes;
+				district.votes['Grüne'] = grVotes;
+				district.votes['BastA'] = baVotes;
 			}
 		});
 	});
@@ -179,8 +179,8 @@ export function changeGrueneBastaSplitProportion(
 				// Löschen des "GB"-Eintrags
 				delete proportionalVote[partyCode];
 				// Hinzufügen der neuen Schlüssel-Wert-Paare
-				proportionalVote['GP'] = grVotes;
-				proportionalVote['BA'] = baVotes;
+				proportionalVote['Grüne'] = grVotes;
+				proportionalVote['BastA'] = baVotes;
 			}
 		});
 	});
@@ -191,14 +191,14 @@ export function changeGrueneBastaFuseDistricts(districts: DistrictVotes): Distri
 	Object.keys(districts).forEach((districtKey) => {
 		const district = districts[districtKey];
 		Object.keys(district.votes).forEach((partyCode) => {
-			if (partyCode === 'GP') {
-				const grVotes = district.votes['GP'] ?? 0;
-				const baVotes = district.votes['BA'] ?? 0;
+			if (partyCode === 'Grüne') {
+				const grVotes = district.votes['Grüne'] ?? 0;
+				const baVotes = district.votes['BastA'] ?? 0;
 				// Berechnen der neuen Werte basierend auf der Fusion
 				const gbVotes = grVotes + baVotes;
 				// Löschen der "GR" und "BA"-Einträge
-				delete district.votes['GP'];
-				delete district.votes['BA'];
+				delete district.votes['Grüne'];
+				delete district.votes['BastA'];
 				// Hinzufügen des neuen "GB"-Eintrags
 				district.votes['GB'] = gbVotes;
 			}
@@ -213,14 +213,14 @@ export function changeGrueneBastaFuseProportion(proportionalVotes: {
 	Object.keys(proportionalVotes).forEach((districtKey) => {
 		const proportionalVote = proportionalVotes[districtKey];
 		Object.keys(proportionalVote).forEach((partyCode) => {
-			if (partyCode === 'GP') {
-				const grVotes = proportionalVote['GP'] ?? 0;
-				const baVotes = proportionalVote['BA'] ?? 0;
+			if (partyCode === 'Grüne') {
+				const grVotes = proportionalVote['Grüne'] ?? 0;
+				const baVotes = proportionalVote['BastA'] ?? 0;
 				// Berechnen der neuen Werte basierend auf der Fusion
 				const gbVotes = grVotes + baVotes;
 				// Löschen der "GR" und "BA"-Einträge
-				delete proportionalVote['GP'];
-				delete proportionalVote['BA'];
+				delete proportionalVote['Grüne'];
+				delete proportionalVote['BastA'];
 				// Hinzufügen des neuen "GB"-Eintrags
 				proportionalVote['GB'] = gbVotes;
 			}

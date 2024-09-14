@@ -3,6 +3,7 @@
   import {
     calculateSeatsTotal,
     calculateSeatsDistricts,
+    TotalSeatsForBarChart,
   } from "./calculateSeats.ts";
   import {
     getProportionalVotes,
@@ -55,7 +56,8 @@
     getVotesforExtraSeatsTotalAllDistricts(districts);
   let minusSeatsTotal: { [districts: string]: { [party: string]: number } } =
     getVotesforMinusSeatsTotalAllDistricts(districts);
-  //let extraSeatsTotal: {[districts:string]:{ [party: string]: number }} = {Grossbasel_Ost: {FDP: 0,LDP: 0,EVP: 0,SP: 0,CVP: 0,GLP: 0,SVP: 0,KL: 0,GB: 0,GP: 0,BA: 0},Grossbasel_West: {FDP: 0,LDP: 0,EVP: 0,SP: 0,CVP: 0,GLP: 0,SVP: 0,GB: 0,GP: 0,BA: 0},Kleinbasel: {FDP: 0,LDP: 0,EVP: 0,SP: 0,CVP: 0,GLP: 0,SVP: 0,FUK: 0,VA: 0,KL: 0,Andere: 0,GB: 0,GP: 0,BA: 0},Riehen: {FDP: 0,LDP: 0,EVP: 0,SP: 0,CVP: 0,GLP: 0,SVP: 0,GB: 0,GP: 0,BA: 0},Bettingen: {BDV: 0,AB: 0}};
+  let SeatsForBarChart: {[party:string]:{name:string, seats:number, colour:string}} = {};
+  //let extraSeatsTotal: {[districts:string]:{ [party: string]: number }} = {Grossbasel_Ost: {FDP: 0,LDP: 0,EVP: 0,SP: 0,CVP: 0,GLP: 0,SVP: 0,KL: 0,GB: 0,Grüne: 0,Basta: 0},Grossbasel_West: {FDP: 0,LDP: 0,EVP: 0,SP: 0,CVP: 0,GLP: 0,SVP: 0,GB: 0,Grüne: 0,BastA: 0},Kleinbasel: {FDP: 0,LDP: 0,EVP: 0,SP: 0,CVP: 0,GLP: 0,SVP: 0,FUK: 0,VA: 0,KL: 0,Andere: 0,GB: 0,Grüne: 0,BastA: 0},Riehen: {FDP: 0,LDP: 0,EVP: 0,SP: 0,CVP: 0,GLP: 0,SVP: 0,GB: 0,Grüne: 0,BastA: 0},Bettingen: {BDV: 0,AB: 0}};
 
   // Berechnung der Sitze
   $: seatDistribution = calculateSeatsDistricts(districts);
@@ -66,7 +68,7 @@
   $: minusSeatsTotal[selectedDistrict] = getVotesforMinusSeatsTotal(
     districts[selectedDistrict]
   );
-
+  $: SeatsForBarChart = TotalSeatsForBarChart(seatDistributionTotal);
   // Funktion, um den ausgewählten Wahlkreis zurückzusetzen
   function resetDistrictVotes() {
     // Annahme: getDistrictVotes() gibt die ursprünglichen Werte zurück
@@ -107,11 +109,11 @@
       let absoluteGruene: number;
       let absoluteBasta: number;
       if (!sliderValuePercentMode) {
-        absoluteGruene = districts[selectedDistrict].votes.GP;
-        absoluteBasta = districts[selectedDistrict].votes.BA;
+        absoluteGruene = districts[selectedDistrict].votes.Grüne;
+        absoluteBasta = districts[selectedDistrict].votes.BastA;
       } else {
-        absoluteGruene = proportionalVotes[selectedDistrict].GP;
-        absoluteBasta = proportionalVotes[selectedDistrict].BA;
+        absoluteGruene = proportionalVotes[selectedDistrict].Grüne;
+        absoluteBasta = proportionalVotes[selectedDistrict].BastA;
       }
       RatioGrueneToGrueneAndBastaLocal[selectedDistrict] =
         absoluteGruene / (absoluteGruene + absoluteBasta);

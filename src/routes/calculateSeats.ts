@@ -77,3 +77,54 @@ function fuseSeats(newSeatDistribution: { [district: string]: { [party: string]:
 	}
 	return newSeatDistributionTotal;
 }
+
+function getColour(party: string) {
+	switch (party) {
+		case 'FDP':
+			return '#00A0E2';
+		case 'LDP':
+			return '#004B8C';
+		case 'GB':
+			return '#84B414';
+		case 'Grüne':
+			return '#84B414';
+		case 'BastA':
+			return '#E6007E';
+		case 'EVP':
+			return '#F8DA00';
+		case 'SP':
+			return '#E40000';
+		case 'Mitte':
+			return 'FF9B00';
+		case 'GLP':
+			return '#B3DD00';
+		case 'SVP':
+			return '#009F4F';
+		case 'VA':
+			return '#5B3A29';
+		case 'FUK':
+			return '#231F20';
+		case 'KL':
+			return '#E51616';
+		case 'Andere':
+			return '#000000';
+		case 'BDV':
+			return '#E1564F';
+		case 'AB':
+			return '#044C77';
+		default:
+			return '#000000';
+	}
+}
+
+export function TotalSeatsForBarChart(SeatDistributionTotal: { [party: string]: number }) {
+	let SeatsForBarChart: {[party:string]:{name:string, seats:number, colour:string}} = {};
+	for (const partyKey in SeatDistributionTotal) {
+		SeatsForBarChart[partyKey] = {
+			name: partyKey,
+			seats: SeatDistributionTotal[partyKey],
+			colour: getColour(partyKey),
+		};
+	}
+	return SeatsForBarChart;
+}

@@ -94,8 +94,8 @@ export function getDefaultFixedParties() {
 			KL: false,
 			Andere: false,
 			GB: false,
-			GP: false,
-			BA: false
+			Grüne: false,
+			BastA: false
 		},
 		Grossbasel_West: {
 			FDP: false,
@@ -107,8 +107,8 @@ export function getDefaultFixedParties() {
 			SVP: false,
 			Andere: false,
 			GB: false,
-			GP: false,
-			BA: false
+			Grüne: false,
+			BastA: false
 		},
 		Kleinbasel: {
 			FDP: false,
@@ -123,8 +123,8 @@ export function getDefaultFixedParties() {
 			KL: false,
 			Andere: false,
 			GB: false,
-			GP: false,
-			BA: false
+			Grüne: false,
+			BastA: false
 		},
 		Riehen: {
 			FDP: false,
@@ -136,8 +136,8 @@ export function getDefaultFixedParties() {
 			SVP: false,
 			Andere: false,
 			GB: false,
-			GP: false,
-			BA: false
+			Grüne: false,
+			BastA: false
 		},
 		Bettingen: {
 			BDV: false,
