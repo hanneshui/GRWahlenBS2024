@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-  .centered-text {
-    text-align: center;
-    margin: 50px auto;
-    max-width: 1000px;
-  }
-  .centered-text a {
-    color: blue;
-    text-decoration: underline;
-  }
+.centered-text {
+  text-align: center;
+  margin: 50px auto;
+  max-width: 1000px;
+}
+.centered-text a {
+  color: blue;
+  text-decoration: underline;
+}

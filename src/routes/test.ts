@@ -1,5 +1,8 @@
-import { getProportionalVotes, getParticipationRatio } from './importantFunctions.ts';
-import { getDistrictVotes } from './districtVotes.ts';
+import {
+  getProportionalVotes,
+  getParticipationRatio,
+} from "./importantFunctions.ts";
+import { getDistrictVotes } from "./districtVotes.ts";
 
 let districts = getDistrictVotes();
 
