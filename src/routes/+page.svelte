@@ -1,4 +1,7 @@
 <script lang="ts">
+  import Chart from "../lib/components/Chart.svelte";
+  import Header from "../lib/components/Header.svelte";
+  import Tables from "../lib/components/Tables.svelte";
   import { getDistrictVotes, getDefaultFixedParties } from "./districtVotes.ts";
   import {
     calculateSeatsTotal,
@@ -166,30 +169,8 @@
   }
 </script>
 
-<h1
-  class="bg-slate-800 px-4 py-4 text-center text-2xl font-bold text-white md:text-4xl"
->
-  Grossratswahlen 2024 Simulation Sitzzuteilung Basel-Stadt
-</h1>
-<hr />
-<h2
-  class="bg-slate-600 px-4 py-4 text-center text-lg font-bold text-white md:text-xl"
->
-  Ausgewählter Wahlkreis: {selectedDistrict}
-</h2>
-<div class="centered-text">
-  <p>
-    Das folgende Tool simuliert die Sitzverteilung für die Grossratswahlen 2024
-    in Basel. Das Tool wurde von <a href="https://hanneshui.ch">Hannes Hui</a> &
-    Kaspar Hui entworfen und umgesetzt. Die Korrektheit der Simulation ist nicht
-    garantiert. Bei Fehlern oder Verbesserungsvorschlägen freue ich mich über
-    eure Rückmeldung. Zur Transparenz und vereinfachten Mitwirkung befindet sich
-    der Source Code dieses Projektes frei zugänglich auf Github:
-    <a href="https://github.com/hanneshui/GRWahlenBS2024">Repository</a> <br /> Die
-    Standartwerte basieren auf den Resultaten der Grossratswahlen 2020. Zusätzlich
-    ist das Standartaufteilungsverhätniss zwischen der Grünen Partei und der Basta!
-    basierend auf dem Resultat der letzten Bürgergemeinderatswahlen.
-  </p>
+<div>
+  <Header {selectedDistrict} />
 </div>
 <div class="mx-auto grid max-w-screen-2xl gap-10 px-4 py-8 lg:grid-cols-2">
   <div>
@@ -472,48 +453,19 @@
     </div>
   </div>
 
-  <div class="space-y-8">
-    {#if seatDistribution}
-      <div>
-        <h3 class="mb-1 text-lg font-medium">
-          Sitzzuteilung im Wahlkreis {selectedDistrict}:
-        </h3>
-        <table class="w-full table-auto border border-slate-300 text-center">
-          <thead>
-            <tr class="bg-slate-700 text-slate-200">
-              <th class="w-40">Party</th>
-              <th class="w-40">Seats</th>
-            </tr>
-          </thead>
-          <tbody>
-            {#each Object.entries(seatDistribution[selectedDistrict]) as [party, seats]}
-              <tr class="odd:bg-slate-200">
-                <td>{party}</td>
-                <td>{seats}</td>
-              </tr>
-            {/each}
-          </tbody>
-        </table>
-      </div>
-      <div>
-        <h3 class="mb-1 text-lg font-medium">Sitzzuteilung alle zusammen:</h3>
-        <table class="w-full table-auto border border-slate-300 text-center">
-          <thead>
-            <tr class="bg-slate-700 text-slate-200">
-              <th class="w-40">Party</th>
-              <th class="w-40">Seats</th>
-            </tr>
-          </thead>
-          <tbody>
-            {#each Object.entries(seatDistributionTotal) as [party, seats]}
-              <tr class="odd:bg-slate-200">
-                <td>{party}</td>
-                <td>{seats}</td>
-              </tr>
-            {/each}
-          </tbody>
-        </table>
-      </div>
-    {/if}
+  
+  <div>
+    <Tables {seatDistribution} {selectedDistrict} {seatDistributionTotal} />
   </div>
+
+  <main>
+    <Chart {SeatsForBarChart} />
+  </main>
 </div>
+<style>
+	main {
+		max-width: 50rem;
+		margin: 0 auto;
+		padding-inline: 1rem;
+	}
+</style>
