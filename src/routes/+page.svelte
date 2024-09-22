@@ -301,7 +301,11 @@
               </div>
 
               <div class="self-center justify-self-center sm:justify-self-end">
-                Wahlkreis {selectedDistrict}
+              <!--  Wahlkreis {selectedDistrict}-->
+              Anteil Grüne an Grüne und Basta:{" "}
+              {(
+                RatioGrueneToGrueneAndBastaLocal[selectedDistrict] * 100
+              ).toFixed(1)}
               </div>
             </label>
 
@@ -457,10 +461,11 @@
   <div>
     <Tables {seatDistribution} {selectedDistrict} {seatDistributionTotal} />
   </div>
-
+  <!--
   <main>
     <Chart {SeatsForBarChart} />
   </main>
+  -->
 </div>
 <style>
 	main {
