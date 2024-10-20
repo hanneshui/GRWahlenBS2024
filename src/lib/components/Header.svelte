@@ -21,9 +21,6 @@
     garantiert. Bei Fehlern oder Verbesserungsvorschlägen freue ich mich über
     eure Rückmeldung. Zur Transparenz und vereinfachten Mitwirkung befindet sich
     der Source Code dieses Projektes frei zugänglich auf Github:
-    <a href="https://github.com/hanneshui/GRWahlenBS2024">Repository</a> <br /> Die
-    Standartwerte basieren auf den Resultaten der Grossratswahlen 2020. Zusätzlich
-    ist das Standartaufteilungsverhätniss zwischen der Grünen Partei und der Basta!
-    basierend auf dem Resultat der letzten Bürgergemeinderatswahlen.
+    <a href="https://github.com/hanneshui/GRWahlenBS2024">Repository</a> <br /> 
   </p>
 </div>

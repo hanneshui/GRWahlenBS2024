@@ -12,7 +12,8 @@ interface TotalVoters {
 }
 
 // districtVotes.ts
-export const getDistrictVotes = () => {
+
+export const getDistrictVotes2020 = () => {
   return {
     Grossbasel_Ost: {
       votes: {
@@ -76,6 +77,77 @@ export const getDistrictVotes = () => {
     },
     Bettingen: {
       votes: { BDV: 179, AB: 262, Andere: 0 },
+      total_seats: 1,
+    },
+  };
+};
+
+export const getDistrictVotes = () => {
+  return {
+    Grossbasel_Ost: {
+      votes: {
+        FDP: 27616,
+        LDP: 52320,
+        EVP: 8648,
+        SP: 85754,
+        Mitte: 21159,
+        EDU: 1384,
+        GLP: 25270,
+        PDA: 2755,
+        SVP: 38667,
+        Andere: 0,
+        GB: 48031,
+      },
+      total_seats: 27,
+    },
+    Grossbasel_West: {
+      votes: {
+        FDP: 37396,
+        LDP: 49830,
+        EVP: 15565,
+        SP: 167394,
+        Mitte: 29297,
+        GLP: 34180,
+        PDA:4070,
+        SVP: 63620,
+        Andere: 1406,
+        GB: 103863,
+      },
+      total_seats: 34,
+    },
+    Kleinbasel: {
+      votes: {
+        FDP: 13018,
+        LDP: 20231,
+        EVP: 4624,
+        SP: 81669,
+        Mitte: 15554,
+        GLP: 13352,
+        PDA: 2332,
+        SVP: 28332,
+        VA: 5978,
+        KL: 2662,
+        Andere: 3469,
+        GB: 54542,
+      },
+      total_seats: 27,
+    },
+    Riehen: {
+      votes: {
+        FDP: 7917,
+        LDP: 11283,
+        EVP: 5682,
+        SP: 12075,
+        Mitte: 6418,
+        GLP: 4380,
+        SVP: 13292,
+        Andere: 0,
+        GB: 5269,
+      },
+      total_seats: 11,
+    },
+    Bettingen: {
+      votes: {GB:88, AB: 325, Andere: 0 },
       total_seats: 1,
     },
   };

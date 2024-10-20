@@ -83,11 +83,11 @@ export function getParticipationRatio(districts: DistrictVotes) {
 
 export function getDefaultGrueneToBastaRatiosLocal() {
   return {
-    Grossbasel_Ost: 0.5613,
-    Grossbasel_West: 0.5613,
-    Kleinbasel: 0.5613,
-    Riehen: 0.5613,
-    Bettingen: 0,
+    Grossbasel_Ost: 0.6500177,
+    Grossbasel_West: 0.6513773,
+    Kleinbasel: 0.4942063,
+    Riehen: 0.76636933,
+    Bettingen: 1,
   };
 }
 
