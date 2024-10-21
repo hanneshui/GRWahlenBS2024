@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import Chart from "../lib/components/Chart.svelte";
   import Header from "../lib/components/Header.svelte";
   import Tables from "../lib/components/Tables.svelte";
@@ -46,7 +47,7 @@
   let seatDistribution: { [district: string]: { [party: string]: number } };
   let seatDistributionTotal: { [party: string]: number };
   let sliderValuePercentMode: boolean = true;
-  let switchValueGBBasta: boolean = false;
+  let switchValueGBBasta: boolean = true;
   let participationRatio: { [district: string]: number } =
     getParticipationRatio(districts);
   let proportionalVotes: { [district: string]: { [party: string]: number } } =
@@ -167,6 +168,9 @@
     });
     handleGrueneToBastaRatioChange();
   }
+  onMount(() => {
+    handleGrueneBastaSplit(switchValueGBBasta);
+  });
 </script>
 
 <div>
